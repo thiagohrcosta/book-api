@@ -9,4 +9,6 @@ Rails.application.routes.draw do
       resources :books, only: [ :index ]
     end
   end
+
+  resources :books, only: [:index]
 end
