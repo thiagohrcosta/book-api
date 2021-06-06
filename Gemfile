@@ -33,6 +33,7 @@ gem 'pundit'
 gem 'faker'
 gem 'rswag'
 gem 'rspec-rails'
+gem 'pg_search'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
