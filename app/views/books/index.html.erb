@@ -1,5 +1,13 @@
+
 <div class="container">
+  <div class="mt-5 mb-5">
+    <%= link_to "Access Api endpoint", "/api/v1/books", class: "btn btn-secondary w-100 mb-3" %>
+    <%= link_to "Access Api documentation", "/api-docs", class: "btn btn-secondary w-100" %>
+
+  </div>
+
   <div class="mt-5">
+    <h2 class="mb-3">Search for a book</h2>
     <%= form_tag books_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
@@ -14,8 +22,18 @@
 <div class="container">
   <div class="mt-5 mb-5">
     <% @books.each do |book| %>
-      <h3><%= book.title %></h3>
-      <p><%= book.author %></p>
+    <div class="book-flex">
+      <div class="">
+        <h3><%= book.title %></h3>
+        <p><%= book.author %></p>
+      </div>
+      <div class="">
+        <%= link_to "Details", book_path(book.id), class: "btn btn-success" %>
+        <%= link_to "Edit", edit_book_path(book.id), class: "btn btn-info" %>
+        <%= link_to "Delete", destroy_book_path(book.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      </div>
+    </div>
+    <hr>
     <% end %>
   </div>
 </div>
